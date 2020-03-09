@@ -20,12 +20,12 @@ public class Game {
 
         System.out.println("Podaj proszę numer pola...");
 
+        Set<Integer> choises = new HashSet<>();
         for (int i = 0; i < 9; i++) {
-            Set<Integer> choises = new HashSet<>();
+
             int userChoice = sc.nextInt();
 
-            if (choises.contains(userChoice)) { // dlaczego zawsze jest false, pomimo,
-                // że użytwkonik już linię wyżej dokonuje wyboru z klawaitury?
+            if (choises.contains(userChoice)) {
                 System.out.println("Te pole zostało już wybrane! Wybierz inne.");
                 continue;
             }else {
