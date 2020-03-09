@@ -1,4 +1,6 @@
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Game {
 
@@ -7,6 +9,8 @@ public class Game {
         Board board = new Board();
         Scanner sc = new Scanner(System.in);
 
+        System.out.println("Witam w grze w kółko i krzyżyk.");
+        System.out.println("Wybierz numer odpowiadający polu, które chcesz wybrać.");
         board.printBoard();
         System.out.println();
         System.out.println("Pierwszy gracz to X");
@@ -16,20 +20,31 @@ public class Game {
 
         System.out.println("Podaj proszę numer pola...");
 
-        for (int i = 0; i <9; i++){
+        for (int i = 0; i < 9; i++) {
+            Set<Integer> choises = new HashSet<>();
             int userChoice = sc.nextInt();
-            if (activePlayer == 'X'){
+
+            if (choises.contains(userChoice)) { // dlaczego zawsze jest false, pomimo,
+                // że użytwkonik już linię wyżej dokonuje wyboru z klawaitury?
+                System.out.println("Te pole zostało już wybrane! Wybierz inne.");
+                continue;
+            }else {
+                choises.add(userChoice);
+            }
+
+            if (activePlayer == 'X') {
                 board.setField(userChoice, 'X');
             }
-            if (activePlayer == 'O'){
+            if (activePlayer == 'O') {
                 board.setField(userChoice, 'O');
             }
+
             board.printBoard();
-            counter++;
+            counter++; // zmiana gracza
             if (counter % 2 == 0) {
                 activePlayer = 'O';
                 System.out.println("Teraz gracz O");
-            }else {
+            } else {
                 activePlayer = 'X';
                 System.out.println("Teraz gracz X");
             }
