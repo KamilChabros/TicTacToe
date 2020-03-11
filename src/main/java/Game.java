@@ -20,16 +20,15 @@ public class Game {
 
         System.out.println("Podaj proszę numer pola...");
 
-        Set<Integer> choises = new HashSet<>();
-        for (int i = 0; i < 9; i++) {
-
+        Set<Integer> choices = new HashSet<>();
+        while (choices.size() != 9) {
             int userChoice = sc.nextInt();
 
-            if (choises.contains(userChoice)) {
-                System.out.println("Te pole zostało już wybrane! Wybierz inne.");
+            if (choices.contains(userChoice)) {
+                System.out.println("To pole zostało już wybrane! Wybierz inne.");
                 continue;
-            }else {
-                choises.add(userChoice);
+            } else {
+                choices.add(userChoice);
             }
 
             if (activePlayer == 'X') {
