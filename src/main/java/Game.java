@@ -11,9 +11,8 @@ public class Game {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Welcome to Tic Tac Toe game.");
-        System.out.println("To place your sign, choose appropriate number from keyboard.");
         System.out.println();
-        // Welcome, printing board and choosing information
+        // Welcome
 
         System.out.println("Choose sign for First Player...(X, O, etc.)");
         char firstSign = sc.next().charAt(0);
@@ -26,13 +25,15 @@ public class Game {
         System.out.println("Provide nick for Second Player: ");
         String secondPLayerNickName = sc.next();
         // Second Player
-        // to-do Checking if first player has the same sign
+        // to-do Checking if first player has the same sign as second player
 
         System.out.println("First Player is: " + firstPLayerNickName + " and has " + firstSign + " sign.");
         System.out.println("Second Player is: " + secondPLayerNickName + " and has " + secondSign + " sign.");
-        // Choosing player, signs and entering nicknames
+        System.out.println("To place your sign, choose appropriate number from keyboard.");
 
-        System.out.println("Please enter your number from keyboard...");
+        // Choosing player, signs and entering nicknames, how to play
+
+        System.out.println(firstPLayerNickName + " please enter your number from keyboard...");
         board.printBoard();
 
         int counter = 0;
@@ -92,5 +93,7 @@ public class Game {
             counter++; // zmiana gracza
 
         }
+        System.out.println();
+        System.out.println("It is a draw!");
     }
 }
