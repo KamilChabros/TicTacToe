@@ -92,8 +92,11 @@ public class Game {
             board.printBoard();
             counter++; // zmiana gracza
 
+            System.out.println();
+            if (choices.size() == 9){
+                System.out.println("It is a draw!");
+            }
+            // Printing draw, when are 9 moves
         }
-        System.out.println();
-        System.out.println("It is a draw!");
     }
 }
