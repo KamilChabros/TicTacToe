@@ -44,7 +44,7 @@ public class Game {
             int userChoice = sc.nextInt();
 
             if (choices.contains(userChoice)) {
-                System.out.println("To pole zostało już wybrane! Wybierz inne.");
+                System.out.println("This field ia unavailable, please choose another.");
                 continue;
             } else {
                 choices.add(userChoice);
@@ -65,10 +65,10 @@ public class Game {
                         board.board[0][2] + board.board[1][2] + board.board[2][2] == firstSign * 3)
                 // above is checking column
                 {
-                    System.out.println("Player " + firstPLayerNickName + " win!");
+                    System.out.println("Player " + "'" + firstPLayerNickName + "'" + " win!");
                     break;
                 }
-                System.out.println("Teraz gracz " + secondPLayerNickName);
+                System.out.println("Now Player: " + "'" + secondPLayerNickName + "'");
             } else if (counter % 2 != 0) {
                 board.setField(userChoice, secondSign);
 
@@ -84,13 +84,13 @@ public class Game {
                         board.board[0][2] + board.board[1][2] + board.board[2][2] == secondSign * 3)
                 // above is checking column
                 {
-                    System.out.println("Player " + secondPLayerNickName + " win!");
+                    System.out.println("Player " + "'" + secondPLayerNickName + "'" + " win!");
                     break;
                 }
-                System.out.println("Teraz gracz " + firstPLayerNickName);
+                System.out.println("Now Player: " + "'" + firstPLayerNickName + "'");
             }
             board.printBoard();
-            counter++; // zmiana gracza
+            counter++; // changing player
 
             System.out.println();
             if (choices.size() == 9){
