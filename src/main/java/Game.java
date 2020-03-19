@@ -42,14 +42,14 @@ public class Game {
                 if (board.checkIfWinner(firstPlayer.firstSign, firstPlayer.firstPLayerNickName)) {
                     break;
                 }
-                System.out.println("Now Player: " + "'" + secondPlayer. + "'");
+                System.out.println("Now Player: " + "'" + secondPlayer.secondPLayerNickName + "'");
 
             } else if (counter % 2 != 0) {
-                board.setField(userChoice, secondSign);
-                if (board.checkIfWinner(secondSign, secondPLayerNickName)) {
+                board.setField(userChoice, secondPlayer.secondSign);
+                if (board.checkIfWinner(secondPlayer.secondSign, secondPlayer.secondPLayerNickName)) {
                     break;
                 }
-                System.out.println("Now Player: " + "'" + firstPLayerNickName + "'");
+                System.out.println("Now Player: " + "'" + firstPlayer.firstPLayerNickName + "'");
             }
             board.printBoard();
             counter++; // changing player
