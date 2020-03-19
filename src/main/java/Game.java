@@ -52,41 +52,15 @@ public class Game {
 
             if (counter % 2 == 0) {
                 board.setField(userChoice, firstSign);
-
-                if (board.board[0][0] + board.board[1][1] + board.board[2][2] == firstSign * 3 ||
-                        board.board[2][0] + board.board[1][1] + board.board[0][2] == firstSign * 3 ||
-                        // above is checking diagonal
-                        board.board[0][0] + board.board[0][1] + board.board[0][2] == firstSign * 3 ||
-                        board.board[1][0] + board.board[1][1] + board.board[1][2] == firstSign * 3 ||
-                        board.board[2][0] + board.board[2][1] + board.board[2][2] == firstSign * 3 ||
-                        // above is checking row
-                        board.board[0][0] + board.board[1][0] + board.board[2][0] == firstSign * 3 ||
-                        board.board[0][1] + board.board[1][1] + board.board[2][1] == firstSign * 3 ||
-                        board.board[0][2] + board.board[1][2] + board.board[2][2] == firstSign * 3)
-                // above is checking column
-                {
-                    System.out.println("Player " + "'" + firstPLayerNickName + "'" + " win!");
+                if (Board.checkIfWinner(board.board, firstSign, firstPLayerNickName)) {
                     break;
                 }
                 System.out.println("Now Player: " + "'" + secondPLayerNickName + "'");
+
             } else if (counter % 2 != 0) {
                 board.setField(userChoice, secondSign);
 
-                if (board.board[0][0] + board.board[1][1] + board.board[2][2] == secondSign * 3 ||
-                        board.board[2][0] + board.board[1][1] + board.board[0][2] == secondSign * 3 ||
-                        // above is checking diagonal
-                        board.board[0][0] + board.board[0][1] + board.board[0][2] == secondSign * 3 ||
-                        board.board[1][0] + board.board[1][1] + board.board[1][2] == secondSign * 3 ||
-                        board.board[2][0] + board.board[2][1] + board.board[2][2] == secondSign * 3 ||
-                        // above is checking row
-                        board.board[0][0] + board.board[1][0] + board.board[2][0] == secondSign * 3 ||
-                        board.board[0][1] + board.board[1][1] + board.board[2][1] == secondSign * 3 ||
-                        board.board[0][2] + board.board[1][2] + board.board[2][2] == secondSign * 3)
-                // above is checking column
-                {
-                    System.out.println("Player " + "'" + secondPLayerNickName + "'" + " win!");
-                    break;
-                }
+                if (Board.checkIfWinner(board.board, secondSign, secondPLayerNickName))
                 System.out.println("Now Player: " + "'" + firstPLayerNickName + "'");
             }
             board.printBoard();

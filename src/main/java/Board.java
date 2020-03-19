@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Board {
     int boardDimension = 3;
     char [][] board = new char[boardDimension][boardDimension];
@@ -59,4 +57,22 @@ public class Board {
             System.out.println("");
         }
     }
-}
+
+    public static boolean checkIfWinner(char [][]board, char playerSign, String playerNickName){
+        if (board[0][0] + board[1][1] + board[2][2] == playerSign * 3 ||
+                board[2][0] + board[1][1] + board[0][2] == playerSign * 3 ||
+                // above is checking diagonal
+                board[0][0] + board[0][1] + board[0][2] == playerSign * 3 ||
+                board[1][0] + board[1][1] + board[1][2] == playerSign * 3 ||
+                board[2][0] + board[2][1] + board[2][2] == playerSign * 3 ||
+                // above is checking row
+                board[0][0] + board[1][0] + board[2][0] == playerSign * 3 ||
+                board[0][1] + board[1][1] + board[2][1] == playerSign * 3 ||
+                board[0][2] + board[1][2] + board[2][2] == playerSign * 3)
+        // above is checking column
+        {
+            System.out.println("Player " + "'" + playerNickName + "'" + " win!");
+            return true; // is this necessary?
+        }
+        return false;
+    }}
