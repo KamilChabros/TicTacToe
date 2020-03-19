@@ -38,7 +38,7 @@ public class Game {
 
             if (counter % 2 == 0) {
                 board.setField(userChoice, firstPlayer.firstSign);
-                if (board.checkIfWinner(firstSign, firstPLayerNickName)) {
+                if (board.checkIfWinner(firstPlayer.firstSign, firstPlayer.firstPLayerNickName)) {
                     break;
                 }
                 System.out.println("Now Player: " + "'" + secondPLayerNickName + "'");

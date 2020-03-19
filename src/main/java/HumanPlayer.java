@@ -6,7 +6,7 @@ public class HumanPlayer extends Player {
             System.out.println("Choose sign for First Player...(X, O, etc.)");
 
         System.out.println("Provide nick for First Player: ");
-    String firstPLayerNickName = sc.next();
+
     // First Player
 
         System.out.println("Choose sign for Second Player...(X, O, etc.)");
