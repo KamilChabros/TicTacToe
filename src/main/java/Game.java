@@ -20,7 +20,7 @@ public class Game {
 
         // Choosing player, signs and entering nicknames, how to play
 
-        System.out.println(firstPLayerNickName + " please enter your number from keyboard...");
+//        System.out.println(firstPLayerNickName + " please enter your number from keyboard...");
         board.printBoard();
 
         int counter = 0;
@@ -37,7 +37,7 @@ public class Game {
             }
 
             if (counter % 2 == 0) {
-                board.setField(userChoice, firstSign);
+                board.setField(userChoice, firstPlayer.firstSign);
                 if (board.checkIfWinner(firstSign, firstPLayerNickName)) {
                     break;
                 }
