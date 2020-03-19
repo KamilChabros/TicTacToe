@@ -9,6 +9,7 @@ public class Game {
 
         Board board = new Board();
         Player firstPlayer = new Player();
+        Player secondPlayer = new Player();
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Welcome to Tic Tac Toe game.");
@@ -41,7 +42,7 @@ public class Game {
                 if (board.checkIfWinner(firstPlayer.firstSign, firstPlayer.firstPLayerNickName)) {
                     break;
                 }
-                System.out.println("Now Player: " + "'" + secondPLayerNickName + "'");
+                System.out.println("Now Player: " + "'" + secondPlayer. + "'");
 
             } else if (counter % 2 != 0) {
                 board.setField(userChoice, secondSign);
