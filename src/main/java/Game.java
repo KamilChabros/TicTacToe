@@ -60,7 +60,9 @@ public class Game {
             } else if (counter % 2 != 0) {
                 board.setField(userChoice, secondSign);
 
-                if (Board.checkIfWinner(board.board, secondSign, secondPLayerNickName))
+                if (Board.checkIfWinner(board.board, secondSign, secondPLayerNickName)) {
+                    break;
+                }
                 System.out.println("Now Player: " + "'" + firstPLayerNickName + "'");
             }
             board.printBoard();
