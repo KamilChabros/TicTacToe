@@ -58,7 +58,7 @@ public class Board {
         }
     }
 
-    public static boolean checkIfWinner(char [][]board, char playerSign, String playerNickName){
+    public boolean checkIfWinner(char playerSign, String playerNickName){
         if (board[0][0] + board[1][1] + board[2][2] == playerSign * 3 ||
                 board[2][0] + board[1][1] + board[0][2] == playerSign * 3 ||
                 // above is checking diagonal
