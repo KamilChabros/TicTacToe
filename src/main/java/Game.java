@@ -8,8 +8,19 @@ public class Game {
     public static void main(String[] args) {
 
         Board board = new Board();
-        Player firstPlayer = new Player();
-        Player secondPlayer = new Player();
+        Player secondPlayer = new HumanPlayer(" ", ' ') {
+            @Override
+            public int move() {
+                return 0;
+            }
+        };
+
+        Player firstPlayer = new HumanPlayer(" ", ' ') {
+            @Override
+            public int move() {
+                return 0;
+            }
+        };
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Welcome to Tic Tac Toe game.");
@@ -38,18 +49,18 @@ public class Game {
             }
 
             if (counter % 2 == 0) {
-                board.setField(userChoice, firstPlayer.firstSign);
-                if (board.checkIfWinner(firstPlayer.firstSign, firstPlayer.firstPLayerNickName)) {
+                board.setField(userChoice, firstPlayer.getPlayerSign());
+                if (board.checkIfWinner(firstPlayer.getPlayerSign(), firstPlayer.getNickName())) {
                     break;
                 }
-                System.out.println("Now Player: " + "'" + secondPlayer.secondPLayerNickName + "'");
+                System.out.println("Now Player: " + "'" + secondPlayer.getNickName() + "'");
 
             } else if (counter % 2 != 0) {
-                board.setField(userChoice, secondPlayer.secondSign);
-                if (board.checkIfWinner(secondPlayer.secondSign, secondPlayer.secondPLayerNickName)) {
+                board.setField(userChoice, secondPlayer.getPlayerSign());
+                if (board.checkIfWinner(secondPlayer.getPlayerSign(), secondPlayer.getNickName())) {
                     break;
                 }
-                System.out.println("Now Player: " + "'" + firstPlayer.firstPLayerNickName + "'");
+                System.out.println("Now Player: " + "'" + firstPlayer.getNickName() + "'");
             }
             board.printBoard();
             counter++; // changing player
