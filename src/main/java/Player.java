@@ -4,7 +4,7 @@ public class Player {
 
     Scanner sc = new Scanner(System.in);
 
-   int move(){
+   public int move(){
        return 0;
    }
 

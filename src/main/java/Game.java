@@ -38,11 +38,11 @@ public class Game {
         // Choosing player, signs and entering nicknames, how to play
 
         board.printBoard();
+        int counter = 0;
 
         Set<Integer> choices = new HashSet<>();
         while (choices.size() != 9) {
-            int counter = 0;
-            int userChoice = sc.nextInt();
+            int userChoice = currentPlayer.move();
 
             if (choices.contains(userChoice)) {
                 System.out.println("This field ia unavailable, please choose another.");
