@@ -8,12 +8,6 @@ public class Game {
     public static void main(String[] args) {
 
         Board board = new Board();
-        Player secondPlayer = new HumanPlayer(" ", ' ') {
-            @Override
-            public int move() {
-                return 0;
-            }
-        };
 
         Player firstPlayer = new HumanPlayer(" ", ' ') {
             @Override
@@ -21,6 +15,13 @@ public class Game {
                 return 0;
             }
         };
+        Player secondPlayer = new HumanPlayer(" ", ' ') {
+            @Override
+            public int move() {
+                return 0;
+            }
+        };
+
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Welcome to Tic Tac Toe game.");
