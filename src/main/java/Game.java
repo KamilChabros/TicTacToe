@@ -10,9 +10,9 @@ public class Game {
         Board board = new Board();
         Scanner sc = new Scanner(System.in);
 
-        Player firstPlayer;
-        Player secondPlayer;
-        Player currentPlayer;
+        Player firstPlayer = null;
+        Player secondPlayer = null;
+        Player currentPlayer = null;
 
         System.out.println("Choose mode: \n" +
                 "1 is: Player VS Player \n" +
@@ -25,7 +25,7 @@ public class Game {
         } else if (modeChoose == 2) {
             firstPlayer = new HumanPlayer(" ", ' ');
             secondPlayer = new CpuPlayer(" ", ' ');
-        } else if(modeChoose == 3) {
+        } else if (modeChoose == 3) {
             firstPlayer = new CpuPlayer(" ", ' ');
             secondPlayer = new CpuPlayer(" ", ' ');
         }
@@ -39,46 +39,46 @@ public class Game {
 
         board.printBoard();
 
-        int counter = 0;
-        if (counter % 2 == 0) {
-            currentPlayer = firstPlayer;
-        } else if (counter % 2 != 0) {
-            currentPlayer = secondPlayer;
+        Set<Integer> choices = new HashSet<>();
+        while (choices.size() != 9) {
+            int counter = 0;
+            int userChoice = sc.nextInt();
 
-            Set<Integer> choices = new HashSet<>();
-            while (choices.size() != 9) {
-                int userChoice = sc.nextInt();
-
-                if (choices.contains(userChoice)) {
-                    System.out.println("This field ia unavailable, please choose another.");
-                    continue;
-                } else {
-                    choices.add(userChoice);
-                }
-
-                if (currentPlayer == firstPlayer) {
-                    board.setField(userChoice, firstPlayer.getPlayerSign());
-                    if (board.checkIfWinner(firstPlayer.getPlayerSign(), firstPlayer.getNickName())) {
-                        break;
-                    }
-                    System.out.println("Now Player: " + "'" + secondPlayer.getNickName() + "'");
-
-                } else if (currentPlayer == secondPlayer) {
-                    board.setField(userChoice, secondPlayer.getPlayerSign());
-                    if (board.checkIfWinner(secondPlayer.getPlayerSign(), secondPlayer.getNickName())) {
-                        break;
-                    }
-                    System.out.println("Now Player: " + "'" + firstPlayer.getNickName() + "'");
-                }
-                board.printBoard();
-                counter++; // changing player
-
-                System.out.println();
-                if (choices.size() == 9) {
-                    System.out.println("It is a draw!");
-                }
-                // Printing draw, when are 9 moves
+            if (choices.contains(userChoice)) {
+                System.out.println("This field ia unavailable, please choose another.");
+                continue;
+            } else {
+                choices.add(userChoice);
             }
+
+            if (currentPlayer == firstPlayer) {
+                board.setField(firstPlayer.move(), firstPlayer.getPlayerSign());
+                if (board.checkIfWinner(firstPlayer.getPlayerSign(), firstPlayer.getNickName())) {
+                    break;
+                }
+                System.out.println("Now Player: " + "'" + secondPlayer.getNickName() + "'");
+
+            } else if (currentPlayer == secondPlayer) {
+                board.setField(secondPlayer.move(), secondPlayer.getPlayerSign());
+                if (board.checkIfWinner(secondPlayer.getPlayerSign(), secondPlayer.getNickName())) {
+                    break;
+                }
+                System.out.println("Now Player: " + "'" + firstPlayer.getNickName() + "'");
+            }
+            board.printBoard();
+            if (counter % 2 == 0) {
+                currentPlayer = firstPlayer;
+            } else if (counter % 2 != 0) {
+                currentPlayer = secondPlayer;
+            }
+            counter++; // changing player
+
+
+            System.out.println();
+            if (choices.size() == 9) {
+                System.out.println("It is a draw!");
+            }
+            // Printing draw, when are 9 moves
         }
     }
 }
