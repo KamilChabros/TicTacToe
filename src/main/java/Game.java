@@ -34,9 +34,6 @@ public class Game {
         System.out.println();
         // Welcome
 
-        System.out.println("To place your sign, choose appropriate number from keyboard.");
-        // Choosing player, signs and entering nicknames, how to play
-
         board.printBoard();
         int counter = 0;
 
