@@ -1,10 +1,14 @@
 import java.util.Scanner;
 
-public abstract class Player {
+public class Player {
 
     Scanner sc = new Scanner(System.in);
 
-    public abstract int move();
+   public int move(){
+        System.out.println("Please enter appropriate number from keyboard...");
+        int move = sc.nextInt();
+        return 0;
+    }
 
     private String nickName;
     private char playerSign;

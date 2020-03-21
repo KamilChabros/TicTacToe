@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public abstract class HumanPlayer extends Player {
+public class HumanPlayer extends Player {
     public HumanPlayer(String nickName, char playerSign) {
         super(nickName, playerSign);
     }

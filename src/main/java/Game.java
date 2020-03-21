@@ -8,32 +8,31 @@ public class Game {
     public static void main(String[] args) {
 
         Board board = new Board();
-
-        Player firstPlayer = new HumanPlayer(" ", ' ') {
-            @Override
-            public int move() {
-                return 0;
-            }
-        };
-        Player secondPlayer = new HumanPlayer(" ", ' ') {
-            @Override
-            public int move() {
-                return 0;
-            }
-        };
-
         Scanner sc = new Scanner(System.in);
+
+        System.out.println("Choose mode: \n" +
+                "1 is: Player VS Player \n" +
+                "2 is: Player VS Cpu \n " +
+                "3 is: Cpu VS Cpu");
+        int modeChoose = sc.nextInt();
+        if (modeChoose == 1) {
+            Player firstPlayer = new HumanPlayer(" ", ' ');
+            Player secondPlayer = new HumanPlayer(" ", ' ');
+        }else if (modeChoose == 2) {
+            Player firstPlayer = new HumanPlayer(" ", ' ');
+            Player secondPlayer = new CpuPlayer(" ", ' ');
+        } else if (modeChoose == 3) {
+            Player firstPlayer = new CpuPlayer(" ", ' ');
+            Player secondPlayer = new CpuPlayer(" ", ' ');
+        }
 
         System.out.println("Welcome to Tic Tac Toe game.");
         System.out.println();
         // Welcome
 
-
         System.out.println("To place your sign, choose appropriate number from keyboard.");
-
         // Choosing player, signs and entering nicknames, how to play
 
-//        System.out.println(firstPLayerNickName + " please enter your number from keyboard...");
         board.printBoard();
 
         int counter = 0;
