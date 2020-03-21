@@ -1,8 +1,12 @@
-import java.util.Scanner;
-
 public class HumanPlayer extends Player {
     public HumanPlayer(String nickName, char playerSign) {
         super(nickName, playerSign);
+    }
+
+    public int move(){
+        System.out.println("Please enter appropriate number from keyboard...");
+        int move = sc.nextInt();
+        return move;
     }
 //    Scanner sc = new Scanner(System.in);
 //

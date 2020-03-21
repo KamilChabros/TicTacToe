@@ -10,20 +10,23 @@ public class Game {
         Board board = new Board();
         Scanner sc = new Scanner(System.in);
 
+        Player firstPlayer;
+        Player secondPlayer;
+
         System.out.println("Choose mode: \n" +
                 "1 is: Player VS Player \n" +
                 "2 is: Player VS Cpu \n " +
                 "3 is: Cpu VS Cpu");
         int modeChoose = sc.nextInt();
         if (modeChoose == 1) {
-            Player firstPlayer = new HumanPlayer(" ", ' ');
-            Player secondPlayer = new HumanPlayer(" ", ' ');
+            firstPlayer = new HumanPlayer(" ", ' ');
+            secondPlayer = new HumanPlayer(" ", ' ');
         }else if (modeChoose == 2) {
-            Player firstPlayer = new HumanPlayer(" ", ' ');
-            Player secondPlayer = new CpuPlayer(" ", ' ');
-        } else if (modeChoose == 3) {
-            Player firstPlayer = new CpuPlayer(" ", ' ');
-            Player secondPlayer = new CpuPlayer(" ", ' ');
+            firstPlayer = new HumanPlayer(" ", ' ');
+            secondPlayer = new CpuPlayer(" ", ' ');
+        } else (modeChoose == 3) {
+            firstPlayer = new CpuPlayer(" ", ' ');
+            secondPlayer = new CpuPlayer(" ", ' ');
         }
 
         System.out.println("Welcome to Tic Tac Toe game.");
