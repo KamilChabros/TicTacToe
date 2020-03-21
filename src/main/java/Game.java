@@ -42,7 +42,14 @@ public class Game {
 
         Set<Integer> choices = new HashSet<>();
         while (choices.size() != 9) {
+
+            if (counter % 2 == 0) {
+                currentPlayer = firstPlayer;
+            } else if (counter % 2 != 0) {
+                currentPlayer = secondPlayer;
+            }
             int userChoice = currentPlayer.move();
+
 
             if (choices.contains(userChoice)) {
                 System.out.println("This field ia unavailable, please choose another.");
@@ -52,27 +59,21 @@ public class Game {
             }
 
             if (currentPlayer == firstPlayer) {
-                board.setField(firstPlayer.move(), firstPlayer.getPlayerSign());
+                board.setField(userChoice, firstPlayer.getPlayerSign());
                 if (board.checkIfWinner(firstPlayer.getPlayerSign(), firstPlayer.getNickName())) {
                     break;
                 }
                 System.out.println("Now Player: " + "'" + secondPlayer.getNickName() + "'");
 
             } else if (currentPlayer == secondPlayer) {
-                board.setField(secondPlayer.move(), secondPlayer.getPlayerSign());
+                board.setField(userChoice, secondPlayer.getPlayerSign());
                 if (board.checkIfWinner(secondPlayer.getPlayerSign(), secondPlayer.getNickName())) {
                     break;
                 }
                 System.out.println("Now Player: " + "'" + firstPlayer.getNickName() + "'");
             }
             board.printBoard();
-            if (counter % 2 == 0) {
-                currentPlayer = firstPlayer;
-            } else if (counter % 2 != 0) {
-                currentPlayer = secondPlayer;
-            }
             counter++; // changing player
-
 
             System.out.println();
             if (choices.size() == 9) {
